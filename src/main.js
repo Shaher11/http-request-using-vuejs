@@ -4,7 +4,7 @@ import App from './App.vue'
 
 Vue.use(VueResource);
 
-Vue.http.options.root = 'https://vue-http-2006e-default-rtdb.firebaseio.com/data.json';
+Vue.http.options.root = 'https://vue-http-2006e-default-rtdb.firebaseio.com/';
 Vue.http.interceptors.push((request, next) => {
   console.log(request);
   if (request.method == 'POST') {
@@ -13,7 +13,7 @@ Vue.http.interceptors.push((request, next) => {
   next(response => {
     response.json = () => { return {messages: response.body}}
   });
-  
+
 });
 new Vue({
   el: '#app',
